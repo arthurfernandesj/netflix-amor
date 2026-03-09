@@ -1,0 +1,74 @@
+*{
+
+}
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.cabecalho {
+    display: flex;
+    padding: 1rem 4%;
+    background-color: transparent; /* Netflix usa transparente que escurece no scroll */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0));
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.cabecalho nav{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+}
+
+.cabecalho nav a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Ajuste no Banner */
+.banner {
+    position: relative;
+    background: url(./assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png) no-repeat center center;
+    background-size: cover;
+    height: 80vh; /* Faz o banner ocupar 80% da altura da tela */
+    display: flex;
+    align-items: flex-end; /* Joga o texto para baixo */
+    padding: 0 4% 50px; /* Alinhamento lateral padrão Netflix */
+}
+
+.conteudo {
+    position: relative;
+    max-width: 100%;
+    z-index: 2; /* Garante que o texto fique na frente do gradiente */
+}
+
+.titulo-principal {
+    font-family: "Great Vibes", cursive;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.banner::after {
+    content: '';
+    /* Gradiente mais escuro em baixo para dar leitura ao texto */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0) 50%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}

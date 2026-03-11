@@ -6,9 +6,16 @@
     <title>Feliz 1 ano</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 <body>
+
+    Tela de introdução com o logo da Netflix
+    <div id="intro-netflix" class="intro-netflix">
+    <img src="assets/img/Logo-Netflix.png" alt="Netflix Logo" class="logo-animada">
+</div>
 
     <header class="cabecalho">
         <div class="logo">
@@ -28,10 +35,77 @@
         <div class="conteudo">
             <h1 class="titulo-principal">Arthur e Luan</h1> 
             <p class="detalhes"> 
-                <span> 05 de Abril - 1 Temporada </span>
+                <span> 05 DE ABRIL - 1 TEMPORADA </span>
+                <span class="stars">
+                    <i class="fa-solid fa-star" style="color: rgb(255, 0, 0);"></i>
+                </span>
+                
+                <p class="descricao">
+                    Hoje é um dia muito especial, pois celebramos o primeiro ano de uma história de amor que tem sido tão incrível quanto uma série da Netflix. 
+                    Desde o momento em que nos conhecemos, cada capítulo da nossa jornada juntos tem sido repleto de momentos inesquecíveis, risadas compartilhadas e um amor que só cresce a cada dia. Que este seja apenas o primeiro de muitos anos felizes juntos, repletos de aventuras, 
+                    cumplicidade e amor verdadeiro. Feliz 1 ano para nós! 
+
+                </p>
+            
+                <div class="botoes">
+            <button class="btn-assistir">
+                <i class="fa-solid fa-play"></i> Assistir
+            </button>
+            <button class="btn-lista">
+                <i class="fa-solid fa-plus"></i> Minha Lista
+            </button>
+            <button class="btn-round">
+                <i class="fa-regular fa-thumbs-up"></i>
+            </button>
+        </div>
             </p>
         </div> 
     </section>
 
+    <section class="momentos">
+        <h2 class="titulo-momentos">Momentos Inesquecíveis</h2>
+        <div class="galeria">
+            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 1" class="momento">
+            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 2" class="momento">
+            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 3" class="momento">
+            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 4" class="momento">
+            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 5" class="momento">
+        
+        </div>
+
+        <div id="modal-momento" class="modal">
+    <span class="fechar-modal">&times;</span>
+    <div class="modal-conteudo">
+        <img id="img-modal" src="" alt="Foto do Momento">
+        <div class="modal-texto">
+            <h3 id="titulo-modal">Nome do Momento</h3>
+            <p id="descricao-modal">Aqui vai a história desse dia especial...</p>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            // Configurações do Swiper
+            direction: 'vertical',
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+
+    </script>
+
+
 </body>

@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 1 ano</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Feliz 1 Ano - Arthur & Luan</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    Tela de introdução com o logo da Netflix
-    <div id="intro-netflix" class="intro-netflix">
-    <img src="assets/img/Logo-Netflix.png" alt="Netflix Logo" class="logo-animada">
+    <div id="tela-perfis" class="perfis-container">
+    <h1 class="perfis-titulo">Quem está assistindo?</h1>
+    <div class="perfis-lista">
+        <div class="perfil" onclick="entrarNoSite('Luan')">
+            <div class="avatar"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Luan"></div>
+            <span class="nome">Luan</span>
+        </div>
+
+        <div class="perfil-adicionar">
+            <div class="avatar"><i class="fa-solid fa-circle-plus"></i></div>
+            <span class="nome">Adicionar</span>
+        </div>
+    </div>
 </div>
+
+    <div id="intro-netflix" class="intro-netflix">
+        <img src="assets/img/Logo-Netflix.png" alt="Netflix Logo" class="logo-animada">
+    </div>
 
     <header class="cabecalho">
         <div class="logo">
@@ -31,81 +47,105 @@
 
     </header>
 
+    <div id="pagina-video" class="video-overlay">
+    <button class="btn-voltar" onclick="fecharVideo()"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+
+    <div id="loading-video" class="loading-container">
+    <div class="netflix-loader"></div>
+</div>
+    
+<div class="video-container">
+    <div id="loading-video" class="loading-container">
+        <div class="netflix-loader"></div>
+    </div>
+    
+    <iframe 
+        id="meuVideo" 
+        width="100%" 
+        height="500" 
+        src="https://www.youtube.com/embed/HJXtL4OrN-o?autoplay=1&mute=0&rel=0&showinfo=0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
+        
+        <div class="video-info">
+            <h2>Arthur e Luan: O Filme</h2>
+            <p class="status">100% Relevante • 2026 • 1 Temporada</p>
+            <p class="sinopse-detalhada">
+                Neste episódio especial, acompanhamos a jornada de dois protagonistas que descobriram que o amor real supera qualquer ficção. 
+                Uma história repleta de risadas, superação e momentos que merecem o Oscar de melhor casal.
+            </p>
+        </div>
+    </div>
+</div>
+
     <section class="banner">
         <div class="conteudo">
             <h1 class="titulo-principal">Arthur e Luan</h1> 
-            <p class="detalhes"> 
-                <span> 05 DE ABRIL - 1 TEMPORADA </span>
-                <span class="stars">
-                    <i class="fa-solid fa-star" style="color: rgb(255, 0, 0);"></i>
-                </span>
-                
-                <p class="descricao">
-                    Hoje é um dia muito especial, pois celebramos o primeiro ano de uma história de amor que tem sido tão incrível quanto uma série da Netflix. 
-                    Desde o momento em que nos conhecemos, cada capítulo da nossa jornada juntos tem sido repleto de momentos inesquecíveis, risadas compartilhadas e um amor que só cresce a cada dia. Que este seja apenas o primeiro de muitos anos felizes juntos, repletos de aventuras, 
-                    cumplicidade e amor verdadeiro. Feliz 1 ano para nós! 
-
-                </p>
             
-                <div class="botoes">
-            <button class="btn-assistir">
-                <i class="fa-solid fa-play"></i> Assistir
-            </button>
-            <button class="btn-lista">
-                <i class="fa-solid fa-plus"></i> Minha Lista
-            </button>
-            <button class="btn-round">
-                <i class="fa-regular fa-thumbs-up"></i>
-            </button>
-        </div>
+            <div class="detalhes">
+                <span>05 DE ABRIL - 1 TEMPORADA</span>
+                <span class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div> 
+                
+            <p class="descricao">
+                Hoje é um dia muito especial, pois celebramos o primeiro ano de uma história de amor que tem sido tão incrível quanto uma série da Netflix. Desde o momento em que nos conhecemos, cada capítulo da nossa jornada juntos tem sido repleto de momentos inesquecíveis, risadas compartilhadas e um amor que só cresce a cada dia. Feliz 1 ano para nós! 
             </p>
+            
+            <div class="botoes">
+                <button class="btn-assistir">
+                    <i class="fa-solid fa-play"></i> Assistir
+                </button>
+                <button class="btn-lista">
+                    <i class="fa-solid fa-plus"></i> Minha Lista
+                </button>
+                <button class="btn-round">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                </button>
+            </div>
         </div> 
     </section>
 
     <section class="momentos">
         <h2 class="titulo-momentos">Momentos Inesquecíveis</h2>
-        <div class="galeria">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 1" class="momento">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 2" class="momento">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 3" class="momento">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 4" class="momento">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Momento 5" class="momento">
-        
+        <div class="swiper swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Primeiro Encontro" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Nossa Viagem" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Jantar Especial" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Cinema Juntos" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Feliz 1 Ano" class="momento"></div>
+            </div>
         </div>
+    </section>
 
-        <div id="modal-momento" class="modal">
-    <span class="fechar-modal">&times;</span>
-    <div class="modal-conteudo">
-        <img id="img-modal" src="" alt="Foto do Momento">
-        <div class="modal-texto">
-            <h3 id="titulo-modal">Nome do Momento</h3>
-            <p id="descricao-modal">Aqui vai a história desse dia especial...</p>
+    <div id="modal-momento" class="modal">
+        <span class="fechar-modal">&times;</span>
+        <div class="modal-conteudo">
+            <img id="img-modal" src="" alt="">
+            <div class="modal-texto">
+                <h3 id="titulo-modal"></h3>
+                <p id="descricao-modal"></p>
+            </div>
         </div>
     </div>
-</div>
+
+    <footer class="rodape">
+        <p>&copy; 2026 - Arthur Todos os direitos reservados.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-        const swiper = new Swiper('.swiper-container', {
-            // Configurações do Swiper
-            direction: 'vertical',
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
-        });
-
-    </script>
-
 
 </body>
+</html>

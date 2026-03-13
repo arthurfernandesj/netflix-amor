@@ -153,7 +153,7 @@ body {
 /* =================== PÁGINA DE VÍDEO ====================== */
 /* ========================================================== */
 .video-overlay {
-    display: none; 
+    display: none !important; 
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-color: #141414;
@@ -254,3 +254,48 @@ body {
     border-radius: 50%; animation: girar 1s linear infinite;
 }
 @keyframes girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ELENCO */
+.elenco-container { padding: 40px 4%; }
+.elenco-lista { display: flex; gap: 40px; margin-top: 20px; }
+.ator { text-align: center; width: 150px; }
+.ator img { 
+    width: 120px; height: 120px; border-radius: 50%; 
+    object-fit: cover; margin-bottom: 10px; border: 2px solid #333;
+}
+.nome-ator { font-weight: bold; font-size: 1.1rem; }
+.personagem { color: #808080; font-size: 0.9rem; }
+
+/* EPISÓDIOS */
+.episodios-container { padding: 40px 4%; border-top: 2px solid #333; }
+.header-episodios { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; margin-bottom: 20px; }
+.temporada-label { font-size: 1.2rem; color: #fff; padding-bottom: 10px; border-bottom: 3px solid #e50914; }
+
+.episodio-card { 
+    display: flex; align-items: center; gap: 20px; padding: 20px; 
+    border-bottom: 1px solid #333; transition: background 0.3s; cursor: pointer;
+}
+.episodio-card:hover { background: #222; }
+.ep-numero { font-size: 1.5rem; color: #808080; width: 30px; }
+.ep-thumb { position: relative; width: 150px; flex-shrink: 0; }
+.ep-thumb img { width: 100%; border-radius: 4px; }
+.barra-progresso { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: #555; }
+.progresso { height: 100%; background: #e50914; }
+
+.ep-info { flex-grow: 1; }
+.ep-titulo { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.ep-titulo h4 { font-size: 1.1rem; }
+.ep-titulo span { color: #808080; }
+.ep-info p { color: #808080; font-size: 0.95rem; line-height: 1.4; }
+
+/* DETALHES TÉCNICOS */
+.detalhes-tecnicos { padding: 40px 4%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #141414; }
+.coluna-tecnica h3 { color: #808080; font-size: 1rem; margin-bottom: 15px; text-transform: uppercase; }
+.coluna-tecnica p { font-size: 0.9rem; margin-bottom: 8px; color: #fff; }
+.coluna-tecnica strong { color: #808080; }
+
+@media (max-width: 768px) {
+    .episodio-card { flex-direction: column; align-items: flex-start; }
+    .ep-thumb { width: 100%; }
+    .detalhes-tecnicos { grid-template-columns: 1fr; }
+}

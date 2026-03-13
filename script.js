@@ -69,3 +69,28 @@ window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
 if(document.querySelector(".fechar-modal")) {
     document.querySelector(".fechar-modal").onclick = () => modal.style.display = "none";
 }
+
+// Funcionalidade do botão Minha Lista
+const btnLista = document.querySelector('.btn-lista');
+if (btnLista) {
+    btnLista.onclick = () => {
+        // Muda o ícone para um check e avisa o usuário
+        btnLista.innerHTML = '<i class="fa-solid fa-check"></i> Na Lista do Luan';
+        btnLista.style.background = "#46d369";
+        
+        // Pequeno detalhe de surpresa
+        setTimeout(() => {
+            alert("✨ Item adicionado aos favoritos de Arthur & Luan! Próximos capítulos: Viagens, jantares e muito mais amor!");
+        }, 300);
+    };
+}
+
+// Opcional: Efeito de som ao entrar no site (o famoso "TUDUM" da Netflix)
+function entrarNoSite() {
+    const somTudum = new Audio('https://www.myinstants.com/media/sounds/netflix-intro.mp3');
+    somTudum.play().catch(e => console.log("Som bloqueado pelo browser")); // Browser as vezes bloqueia autoplay
+
+    const tela = document.getElementById('tela-perfis');
+    tela.style.opacity = '0';
+    setTimeout(() => tela.style.display = 'none', 500);
+}

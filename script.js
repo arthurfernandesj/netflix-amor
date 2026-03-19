@@ -38,27 +38,63 @@ if (btnAssistir) {
     });
 }
 
-// 4. Fechar Vídeo (Para o som completamente)
+// 4. Fechar Vídeo (Restaurando a Home por completo)
 function fecharVideo() {
+    // 1. Esconde a tela de vídeo e reseta o player para parar o som
+    const paginaVideo = document.getElementById('pagina-video');
+    const videoIframe = document.getElementById('meuVideo');
+    
     paginaVideo.style.display = 'none';
-    // Remove o autoplay e reseta o Iframe para cortar o áudio
     videoIframe.src = "https://www.youtube.com/embed/HJXtL4OrN-o?rel=0&enablejsapi=1";
+
+    // 2. MOSTRA todas as seções que foram escondidas ao clicar em assistir
+    const secoesParaMostrar = [
+        '.cabecalho',
+        '.banner',
+        '.momentos',
+        '.elenco-container',
+        '.episodios-container',
+        '.detalhes-tecnicos',
+        '.rodape'
+    ];
+
+    secoesParaMostrar.forEach(seletor => {
+        const elemento = document.querySelector(seletor);
+        if (elemento) {
+            // Se for o header ou banner, costuma ser flex, o resto block ou grid
+            if (seletor === '.cabecalho' || seletor === '.banner') {
+                elemento.style.display = 'flex';
+            } else if (seletor === '.detalhes-tecnicos') {
+                elemento.style.display = 'grid';
+            } else {
+                elemento.style.display = 'block';
+            }
+        }
+    });
+
+    // 3. Garante que o scroll volte para o topo da home
+    window.scrollTo(0, 0);
 }
 
 // 5. Entrar no Site (Com o som TUDUM)
 function entrarNoSite(nome) {
-    // Tenta tocar o som (pode ser bloqueado pelo navegador se não houver interação prévia)
+    // Som clássico da Netflix
     const somTudum = new Audio('https://www.myinstants.com/media/sounds/netflix-intro.mp3');
-    somTudum.volume = 0.5;
-    somTudum.play().catch(() => console.log("Som aguardando interação."));
+    somTudum.volume = 0.4;
+    somTudum.play().catch(() => console.log("Áudio bloqueado até interação"));
 
     const telaPerfis = document.getElementById('tela-perfis');
-    if (telaPerfis) {
+    
+    // Animação de zoom no avatar antes de sumir
+    const avatarClicado = event.currentTarget.querySelector('.avatar');
+    if(avatarClicado) avatarClicado.style.transform = "scale(1.2)";
+
+    setTimeout(() => {
         telaPerfis.style.opacity = '0';
         setTimeout(() => { 
             telaPerfis.style.display = 'none'; 
         }, 500);
-    }
+    }, 300);
 }
 
 // 6. Contador de Tempo

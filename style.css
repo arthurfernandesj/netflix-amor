@@ -225,23 +225,50 @@ body {
 }
 
 /* ========================================================== */
-/* ================ RESPONSIVIDADE (MOBILE) ================= */
+/* ========== AJUSTES DE RESPONSIVIDADE (MOBILE) ============ */
 /* ========================================================== */
+
 @media (max-width: 768px) {
-    .perfis-titulo { font-size: 1.8rem; }
-    .perfis-lista { flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .avatar { width: 120px; height: 120px; }
-    .nome { font-size: 1rem; }
+    /* 1. Perfis: Faz os avatares ficarem menores e em fila */
+    .perfis-titulo { font-size: 1.5rem; text-align: center; }
+    .perfis-lista { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .avatar { width: 100px; height: 100px; min-width: 80px; min-height: 80px; }
+    .nome { font-size: 0.9rem; }
 
-    .cabecalho nav { display: none; }
-    .titulo-principal { font-size: 45px; }
-    .banner { height: 75vh; padding-bottom: 60px; }
-    .descricao { font-size: 0.95rem; }
+    /* 2. Header: Esconde o menu para não embolar com o logo */
+    .cabecalho { padding: 0.5rem 4%; justify-content: center; }
+    .cabecalho nav { display: none; } 
+
+    /* 3. Banner: Ajusta o texto e os botões */
+    .banner { height: 70vh; padding-bottom: 40px; align-items: center; text-align: center; }
+    .titulo-principal { font-size: 40px !important; }
+    .descricao { font-size: 0.9rem; line-height: 1.4; }
+    .conteudo { max-width: 100%; }
     
-    .botoes { flex-direction: column; align-items: flex-start; }
-    .btn-assistir, .btn-lista { width: 100%; justify-content: center; }
+    /* Botões empilhados para facilitar o clique no dedo */
+    .botoes { flex-direction: column; width: 100%; gap: 10px; }
+    .btn-assistir, .btn-lista { width: 100%; justify-content: center; padding: 12px; }
 
-    .video-info h2 { font-size: 1.8rem; }
+    /* 4. Galeria de Momentos: Diminui as capas */
+    .momento { width: 180px; }
+    .titulo-momentos { font-size: 1.2rem; }
+
+    /* 5. Página de Vídeo: Ajusta o Player para não vazar */
+    .video-overlay { padding: 60px 15px 20px; }
+    .video-container { width: 100%; margin-bottom: 20px; }
+    .video-info h2 { font-size: 1.5rem; }
+    .sinopse-detalhada { font-size: 0.95rem; }
+    .btn-voltar { top: 15px; left: 15px; font-size: 1rem; }
+
+    /* 6. Elenco e Episódios */
+    .elenco-lista { gap: 20px; justify-content: center; }
+    .ator img { width: 80px; height: 80px; }
+    
+    .episodio-card { flex-direction: column; align-items: flex-start; padding: 15px 0; }
+    .ep-thumb { width: 100%; }
+    .ep-numero { display: none; } /* Esconde o número para ganhar espaço */
+    
+    .detalhes-tecnicos { grid-template-columns: 1fr; gap: 20px; }
 }
 
 /* ========================================================== */

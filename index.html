@@ -7,27 +7,24 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="tela-perfis" class="perfis-container">
-    <h1 class="perfis-titulo">Quem está assistindo?</h1>
-    <div class="perfis-lista">
-        <div class="perfil" onclick="entrarNoSite('Luan')">
-            <div class="avatar"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Luan"></div>
-            <span class="nome">Luan</span>
-        </div>
-
-        <div class="perfil-adicionar">
-            <div class="avatar"><i class="fa-solid fa-circle-plus"></i></div>
-            <span class="nome">Adicionar</span>
+        <h1 class="perfis-titulo">Quem está assistindo?</h1>
+        <div class="perfis-lista">
+            <div class="perfil" onclick="entrarNoSite('Luan')">
+                <div class="avatar"><img src="assets/img/luan-foto.jpeg" alt="Luan"></div>
+                <span class="nome">Luan</span>
+            </div>
+            <div class="perfil-adicionar">
+                <div class="avatar"><i class="fa-solid fa-circle-plus"></i></div>
+                <span class="nome">Adicionar</span>
+            </div>
         </div>
     </div>
-</div>
 
     <div id="intro-netflix" class="intro-netflix">
         <img src="assets/img/Logo-Netflix.png" alt="Netflix Logo" class="logo-animada">
@@ -37,18 +34,18 @@
         <div class="logo">
             <img src="assets/img/Logo-Netflix.png" alt="Netflix" width="100px">
         </div>
-
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Séries</a>
-            <a href="#">Filmes</a>
-            <a href="#">Minha Lista</a>
+            <a href="index.html">Início</a>
+            <a href="#momentos">Momentos</a>
+            <a href="#episodios">Episódios</a>
+            <a href="#banner-principal" id="nav-minha-lista">Minha Lista</a>
         </nav>
-
     </header>
 
-   <div id="pagina-video" class="video-overlay">
-        <button class="btn-voltar" onclick="fecharVideo()"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+    <div id="pagina-video" class="video-overlay">
+        <button class="btn-voltar" onclick="fecharVideo()">
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
+        </button>
 
         <div class="video-container">
             <iframe 
@@ -71,25 +68,20 @@
                 Uma história repleta de risadas, superação e momentos que merecem o Oscar de melhor casal.
             </p>
         </div>
-    </div> <section class="banner">
+    </div>
+
+    <section class="banner" id="banner-principal">
         <div class="conteudo">
             <h1 class="titulo-principal">Arthur e Luan</h1> 
-            
             <div class="detalhes">
                 <span>05 DE ABRIL - 1 TEMPORADA</span>
                 <span class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </span>
             </div> 
-                
             <p class="descricao">
-                Hoje é um dia muito especial, pois celebramos o primeiro ano de uma história de amor que tem sido tão incrível quanto uma série da Netflix. Desde o momento em que nos conhecemos, cada capítulo da nossa jornada juntos tem sido repleto de momentos inesquecíveis, risadas compartilhadas e um amor que só cresce a cada dia. Feliz 1 ano para nós! 
+                Hoje é um dia muito especial, pois celebramos o primeiro ano de uma história de amor que tem sido tão incrível quanto uma série da Netflix. Desde o momento em que nos conhecemos, cada capítulo da nossa jornada juntos tem sido repleto de momentos inesquecíveis.
             </p>
-            
             <div class="botoes">
                 <button class="btn-assistir">
                     <i class="fa-solid fa-play"></i> Assistir
@@ -104,102 +96,70 @@
         </div> 
     </section>
 
-    <section class="momentos">
+    <section class="momentos" id="momentos">
         <h2 class="titulo-momentos">Momentos Inesquecíveis</h2>
         <div class="swiper swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="assets/img/primeiro-encontro.jpeg" alt="Primeiro Encontro" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/viagem1.jpeg" alt="Nossa Viagem" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Jantar Especial" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Cinema Juntos" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Feliz 1 Ano" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/viagem1.jpeg" alt="Nossa Primeira viagem juntos" class="momento"></div>
+                 <div class="swiper-slide"><img src="assets/img/viagem.jpeg" alt="Nossa viagem em Bh" class="momento"></div>
+                 <div class="swiper-slide"><img src="assets/img/" alt="Nossa viagem em Paraty" class="momento"></div>
+                 <div class="swiper-slide"><img src="assets/img/" alt="Nossa viagem em Goiânia" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/momentos2.jpeg" alt="Fulô especial" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/shopping.jpeg" alt="Cinema Juntos" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/momento.jpeg" alt="Feliz 1 Ano" class="momento"></div>
             </div>
         </div>
     </section>
 
     <section class="elenco-container">
-    <h2 class="titulo-momentos">Elenco Principal</h2>
-    <div class="elenco-lista">
-        <div class="ator">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Arthur">
-            <p class="nome-ator">Arthur</p>
-            <p class="personagem">O Diretor do coração</p>
-        </div>
-        <div class="ator">
-            <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Luan">
-            <p class="nome-ator">Luan</p>
-            <p class="personagem">O Protagonista Favorito</p>
-        </div>
-    </div>
-</section>
-
-<section class="episodios-container">
-    <div class="header-episodios">
-        <h2 class="titulo-momentos">Episódios</h2>
-        <span class="temporada-label">Temporada 1</span>
-    </div>
-    
-    <div class="lista-episodios">
-        <div class="episodio-card">
-            <div class="ep-numero">1</div>
-            <div class="ep-thumb">
-                <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Ep 1">
-                <div class="barra-progresso"><div class="progresso" style="width: 100%;"></div></div>
+        <h2 class="titulo-momentos">Elenco Principal</h2>
+        <div class="elenco-lista">
+            <div class="ator">
+                <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Arthur">
+                <p class="nome-ator">Arthur</p>
+                <p class="personagem">O Diretor do coração</p>
             </div>
-            <div class="ep-info">
-                <div class="ep-titulo">
-                    <h4>O Primeiro Capítulo</h4>
-                    <span>45 min</span>
+            <div class="ator">
+                <img src="assets/img/luan-foto.jpeg" alt="Luan">
+                <p class="nome-ator">Luan</p>
+                <p class="personagem">O Protagonista Favorito</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="episodios-container" id="episodios">
+        <div class="header-episodios">
+            <h2 class="titulo-momentos">Episódios</h2>
+            <span class="temporada-label">Temporada 1</span>
+        </div>
+        <div class="lista-episodios">
+            <div class="episodio-card">
+                <div class="ep-numero">1</div>
+                <div class="ep-thumb">
+                    <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Ep 1">
+                    <div class="barra-progresso"><div class="progresso" style="width: 100%;"></div></div>
                 </div>
-                <p>Tudo começou com um "oi" que parecia comum, mas que rapidamente se tornou a notificação mais esperada do dia.</p>
-            </div>
-        </div>
-
-        <div class="episodio-card">
-            <div class="ep-numero">2</div>
-            <div class="ep-thumb">
-                <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Ep 2">
-                <div class="barra-progresso"><div class="progresso" style="width: 100%;"></div></div>
-            </div>
-            <div class="ep-info">
-                <div class="ep-titulo">
-                    <h4>Acelerando o Coração</h4>
-                    <span>50 min</span>
+                <div class="ep-info">
+                    <div class="ep-titulo"><h4>O Primeiro Capítulo</h4><span>45 min</span></div>
+                    <p>Tudo começou com um "oi" que mudou nossas vidas para sempre.</p>
                 </div>
-                <p>Entre encontros e conversas infinitas, percebemos que a nossa sintonia era digna de um roteiro de cinema.</p>
             </div>
-        </div>
+            </div>
+    </section>
 
-        <div class="episodio-card">
-            <div class="ep-numero">3</div>
-            <div class="ep-thumb">
-                <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Ep 3">
-                <div class="barra-progresso"><div class="progresso" style="width: 30%;"></div></div>
-            </div>
-            <div class="ep-info">
-                <div class="ep-titulo">
-                    <h4>Feliz 1 Ano</h4>
-                    <span>Em exibição</span>
-                </div>
-                <p>O episódio de hoje celebra 365 dias de conquistas, risadas e a certeza de que a renovação para a próxima temporada é garantida.</p>
-            </div>
+    <section class="detalhes-tecnicos">
+        <div class="coluna-tecnica">
+            <h3>Sobre Arthur & Luan</h3>
+            <p><strong>Gêneros:</strong> Romance, Comédia, Aventura.</p>
+            <p><strong>Este título é:</strong> Emocionante, Romântico.</p>
         </div>
-    </div>
-</section>
-
-<section class="detalhes-tecnicos">
-    <div class="coluna-tecnica">
-        <h3>Sobre Arthur & Luan</h3>
-        <p><strong>Gêneros:</strong> Romance, Comédia, Aventura, Baseado em Fatos Reais.</p>
-        <p><strong>Este título é:</strong> Emocionante, Romântico.</p>
-    </div>
-    <div class="coluna-tecnica">
-        <h3>Áudio e Legendas</h3>
-        <p><strong>Áudio:</strong> Português (Original), Linguagem do Carinho.</p>
-        <p><strong>Legendas:</strong> Disponível em olhares, sorrisos e abraços.</p>
-    </div>
-</section>
-    
+        <div class="coluna-tecnica">
+            <h3>Áudio e Legendas</h3>
+            <p><strong>Áudio:</strong> Português (Original).</p>
+            <p><strong>Legendas:</strong> Disponível em olhares e abraços.</p>
+        </div>
+    </section>
 
     <div id="modal-momento" class="modal">
         <span class="fechar-modal">&times;</span>
@@ -218,7 +178,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
-
 
 </body>
 </html>

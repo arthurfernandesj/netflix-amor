@@ -142,6 +142,24 @@ body {
 .swiper-wrapper { display: flex; flex-direction: row; }
 .swiper-slide { flex-shrink: 0; width: auto; }
 
+.swiper-slide img.momento {
+    width: 250px; /* Largura fixa para manter o padrão */
+    aspect-ratio: 16 / 9; /* Força o formato retangular de cinema */
+    object-fit: cover; /* Faz o "zoom" automático para preencher o retângulo sem esticar */
+    object-position: center; /* Garante que o corte foque no centro da imagem */
+    border-radius: 4px;
+    transition: transform 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+/* Efeito de zoom no hover para dar feedback visual */
+.swiper-slide img.momento:hover {
+    transform: scale(1.08);
+    border: 2px solid #e50914; /* Bordinha vermelha Netflix */
+    z-index: 10;
+}
+
 .momento {
     width: 250px; aspect-ratio: 16/9; object-fit: cover;
     border-radius: 4px; transition: 0.3s; cursor: pointer;
@@ -262,7 +280,14 @@ body {
 
     /* 6. Elenco e Episódios */
     .elenco-lista { gap: 20px; justify-content: center; }
-    .ator img { width: 80px; height: 80px; }
+    .ator img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Deixa redondo */
+        object-fit: cover; /* Garante que o rosto não fique achatado */
+        border: 2px solid #333;
+        margin-bottom: 10px;
+    }
     
     .episodio-card { flex-direction: column; align-items: flex-start; padding: 15px 0; }
     .ep-thumb { width: 100%; }

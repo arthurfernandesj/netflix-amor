@@ -139,9 +139,23 @@ function entrarNoSite(nome) {
     somTudum.volume = 0.4;
     somTudum.play().catch(() => {});
 
+    // 1. Esconde a tela de perfis
     const telaPerfis = document.getElementById('tela-perfis');
     telaPerfis.style.opacity = '0';
-    setTimeout(() => { telaPerfis.style.display = 'none'; }, 500);
+    
+    setTimeout(() => { 
+        telaPerfis.style.display = 'none'; 
+        
+        // 2. MOSTRA o conteúdo principal
+        const mainContent = document.getElementById('conteudo-principal');
+        mainContent.style.display = 'block';
+        
+        // Pequeno delay para o efeito de fade-in ficar suave
+        setTimeout(() => {
+            mainContent.style.opacity = '1';
+        }, 50);
+
+    }, 500);
 }
 
 // Contador

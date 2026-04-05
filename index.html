@@ -174,9 +174,6 @@ Arthur`)">
                 <button class="btn-lista">
                     <i class="fa-solid fa-plus"></i> Minha Lista
                 </button>
-                <button class="btn-round">
-                    <i class="fa-regular fa-thumbs-up"></i>
-                </button>
             </div>
         </div> 
     </section>
@@ -244,11 +241,10 @@ Arthur`)">
         </div>
     </section>
 
-    <div id="modal-momento" class="modal">
-
-    </div>
-        <span class="fechar-modal">&times;</span>
-        <div class="modal-conteudo">
+    <div id="modal-momento" class="modal" onclick="fecharModalMomento()">
+        <span class="fechar-modal" onclick="fecharModalMomento()">&times;</span>
+        
+        <div class="modal-conteudo" onclick="event.stopPropagation()">
             <img id="img-modal" src="" alt="">
             <div class="modal-texto">
                 <h3 id="titulo-modal"></h3>
@@ -256,10 +252,6 @@ Arthur`)">
             </div>
         </div>
     </div>
-
-    <footer class="rodape">
-        <p>&copy; 2026 - Arthur Todos os direitos reservados.</p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>

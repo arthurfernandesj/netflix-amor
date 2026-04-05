@@ -12,6 +12,13 @@
 </head>
 <body>
 
+<div id="modal-mensagem" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal" onclick="fecharCardMensagem()">&times;</span>
+        <p id="texto-mensagem"></p>
+    </div>
+</div>
+
     <div id="tela-perfis" class="perfis-container">
         <h1 class="perfis-titulo">Quem está assistindo?</h1>
         <div class="perfis-lista">
@@ -39,6 +46,7 @@
             <a href="#momentos">Momentos</a>
             <a href="#episodios">Episódios</a>
             <a href="#banner-principal" id="nav-minha-lista">Minha Lista</a>
+            <a href="#" onclick="abrirModoConforto()">Modo Conforto</a>
         </nav>
     </header>
 
@@ -47,21 +55,21 @@
             <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
         </button>
 
-        <div class="video-container">
-            <iframe 
-                id="meuVideo" 
-                width="100%" 
-                height="500" 
-                src="https://www.youtube.com/embed/HJXtL4OrN-o?rel=0&enablejsapi=1" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
+<div class="video-container">
+    <iframe 
+        id="meuVideo" 
+        width="100%" 
+        height="500" 
+        src="https://www.youtube.com/embed/wvMhLp_obhM" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
         
         <div class="video-info">
-            <h2>Arthur e Luan: O Filme</h2>
+            <h2>Arthur e Luan: O Começo</h2>
             <p class="status">100% Relevante • 2026 • 1 Temporada</p>
             <p class="sinopse-detalhada">
                 Neste episódio especial, acompanhamos a jornada de dois protagonistas que descobriram que o amor real supera qualquer ficção. 
@@ -69,6 +77,78 @@
             </p>
         </div>
     </div>
+  <div id="modo-conforto" class="video-overlay" style="background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); display: none;">
+    
+    <button class="btn-voltar" onclick="fecharModoConforto()">
+        <i class="fa-solid fa-arrow-left"></i> Voltar ao Mundo
+    </button>
+    
+    <div class="video-info" style="text-align: center; margin-bottom: 30px;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 4rem; color: #fff;">Nosso Lugar Seguro</h2>
+        <p style="color: #ccc; font-size: 1.2rem;">Sempre que o mundo lá fora estiver pesado demais, clique aqui.</p>
+    </div>
+
+    <div class="cards-conforto">
+        
+        <!-- CARD 1 -->
+        <div class="card-conforto" onclick="exibirMensagem(`Você é único na minha vida, meu primeiro em tudo, e eu sei que sempre vai ser. Eu te amo hoje e sempre.
+
+Desde o dia em que te vi no show, eu senti algo diferente. E até hoje eu te olho do mesmo jeito.
+
+Um ano já passou, e pra mim é só o começo. Porque você não sai mais da minha vida.
+
+Eu percebi que te amava quando a sua felicidade se tornou tão importante quanto a minha. Em tudo, eu só penso: “queria você aqui comigo”.
+
+Eu te amo. Hoje, amanhã e sempre.
+
+Seu amor, Thur 🤍`)">
+            <i class="fa-solid fa-heart"></i>
+            <span>Abra quando... quiser saber o quanto eu te amo</span>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card-conforto" onclick="exibirMensagem(`Quando a saudade apertar, lembra que cada pensamento meu é como um abraço te envolvendo, um sorriso te alcançando e um suspiro te acalmando.
+
+Mesmo distantes, nossos corações continuam conectados, e a saudade só mostra o quanto você é importante pra mim.
+
+Eu tô aqui, sempre, esperando o momento de te ver de novo e transformar essa saudade em alegria.
+
+Te amo 🤍
+
+Com amor,  
+Arthur`)">
+            <i class="fa-solid fa-face-smile-beam"></i>
+            <span>Abra quando... estiver com saudade</span>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card-conforto" onclick="exibirMensagem(`Meu amor,
+
+Eu não sei exatamente o motivo da sua tristeza… mas queria que você soubesse que não está sozinho.
+
+Se foi algo que eu fiz ou falei, me desculpa de verdade. E se não for, ainda assim eu tô aqui com você.
+
+Se a culpa for minha, eu vou melhorar. Se for do mundo, a gente enfrenta juntos.
+
+O mais importante pra mim é ver você bem.
+
+Eu te amo, e sempre vou estar aqui por você 🤍
+
+Com amor,  
+Arthur`)">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span>Abra quando... estiver se sentindo triste</span>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card-conforto" onclick="window.open('https://www.youtube.com/watch?v=lFcSrYw-ARY', '_blank')">
+            <i class="fa-solid fa-music"></i>
+            <span>Música para acalmar</span>
+        </div>
+
+    </div>
+</div>
+
 
     <section class="banner" id="banner-principal">
         <div class="conteudo">
@@ -100,14 +180,12 @@
         <h2 class="titulo-momentos">Momentos Inesquecíveis</h2>
         <div class="swiper swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="assets/img/primeiro-encontro.jpeg" alt="Primeiro Encontro" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/viagem1.jpeg" alt="Nossa Primeira viagem juntos" class="momento"></div>
-                 <div class="swiper-slide"><img src="assets/img/viagem.jpeg" alt="Nossa viagem em Bh" class="momento"></div>
-                 <div class="swiper-slide"><img src="assets/img/" alt="Nossa viagem em Paraty" class="momento"></div>
-                 <div class="swiper-slide"><img src="assets/img/" alt="Nossa viagem em Goiânia" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/momentos2.jpeg" alt="Fulô especial" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/shopping.jpeg" alt="Cinema Juntos" class="momento"></div>
-                <div class="swiper-slide"><img src="assets/img/momento.jpeg" alt="Feliz 1 Ano" class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/primeiro-encontro.jpeg" alt="Onde a nossa série favorita começou." class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/viagem1.jpeg" alt="O primeiro de muitos destinos ao seu lado." class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/teste.jpeg" alt="Uai, sô! Descobrindo Minas e criando memórias." class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/goiania.jpeg" alt="No coração do Brasil, encontrei o meu lugar: VOCÊ." class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/momentos2.jpeg" alt="Detalhes que fazem a vida florescer." class="momento"></div>
+                <div class="swiper-slide"><img src="assets/img/momento.jpeg" alt="365 dias sendo a minha melhor escolha. Te amo!" class="momento"></div>
             </div>
         </div>
     </section>
@@ -116,7 +194,7 @@
         <h2 class="titulo-momentos">Elenco Principal</h2>
         <div class="elenco-lista">
             <div class="ator">
-                <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Arthur">
+                <img src="assets/img/eu.jpeg" alt="Arthur">
                 <p class="nome-ator">Arthur</p>
                 <p class="personagem">O Diretor do coração</p>
             </div>
@@ -137,7 +215,7 @@
             <div class="episodio-card">
                 <div class="ep-numero">1</div>
                 <div class="ep-thumb">
-                    <img src="assets/img/Gemini_Generated_Image_ua46cbua46cbua46.png" alt="Ep 1">
+                    <img src="assets/img/primeiro-encontro.jpeg" alt="Ep 1">
                     <div class="barra-progresso"><div class="progresso" style="width: 100%;"></div></div>
                 </div>
                 <div class="ep-info">
@@ -145,7 +223,7 @@
                     <p>Tudo começou com um "oi" que mudou nossas vidas para sempre.</p>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="detalhes-tecnicos">

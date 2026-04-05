@@ -1,4 +1,6 @@
-// 1. Inicialização do Swiper
+// ==========================================
+// 1. INICIALIZAÇÃO DO SWIPER (CARROSSEL)
+// ==========================================
 const swiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
     loop: true,
@@ -7,30 +9,30 @@ const swiper = new Swiper('.swiper-container', {
     spaceBetween: 15,
 });
 
-// 2. Elementos Globais
+// ==========================================
+// 2. ELEMENTOS GLOBAIS
+// ==========================================
 const btnAssistir = document.querySelector('.btn-assistir');
 const paginaVideo = document.getElementById('pagina-video');
 const videoIframe = document.getElementById('meuVideo');
-const modal = document.getElementById("modal-momento");
+const modalFotos = document.getElementById("modal-momento");
+const modalMsg = document.getElementById('modal-mensagem');
 const btnLista = document.querySelector('.btn-lista');
 
-// 3. Abrir Vídeo (Simulando Página Separada)
+// ==========================================
+// 3. LÓGICA DO VÍDEO (ABRIR E FECHAR)
+// ==========================================
 if (btnAssistir) {
     btnAssistir.addEventListener('click', function() {
-        // Esconde as outras seções do site
-        document.querySelector('.banner').style.display = 'none';
-        document.querySelector('.momentos').style.display = 'none';
-        document.querySelector('.elenco-container').style.display = 'none';
-        document.querySelector('.episodios-container').style.display = 'none';
-        document.querySelector('.detalhes-tecnicos').style.display = 'none';
-        document.querySelector('.rodape').style.display = 'none';
-        document.querySelector('.cabecalho').style.display = 'none';
+        const secoesParaEsconder = ['.banner', '.momentos', '.elenco-container', '.episodios-container', '.detalhes-tecnicos', '.rodape', '.cabecalho'];
+        secoesParaEsconder.forEach(s => {
+            const el = document.querySelector(s);
+            if(el) el.style.display = 'none';
+        });
 
-        // Mostra a tela do vídeo ocupando a tela toda
         paginaVideo.style.display = 'flex';
         window.scrollTo(0, 0);
 
-        // Ativa o som
         let url = videoIframe.src;
         if (!url.includes('autoplay=1')) {
             videoIframe.src = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
@@ -38,30 +40,88 @@ if (btnAssistir) {
     });
 }
 
-// 4. Fechar Vídeo (Restaurando a Home por completo)
 function fecharVideo() {
-    // 1. Esconde a tela de vídeo e reseta o player para parar o som
-    const paginaVideo = document.getElementById('pagina-video');
-    const videoIframe = document.getElementById('meuVideo');
-    
     paginaVideo.style.display = 'none';
     videoIframe.src = "https://www.youtube.com/embed/HJXtL4OrN-o?rel=0&enablejsapi=1";
+    restaurarHome();
+}
 
-    // 2. MOSTRA todas as seções que foram escondidas ao clicar em assistir
-    const secoesParaMostrar = [
-        '.cabecalho',
-        '.banner',
-        '.momentos',
-        '.elenco-container',
-        '.episodios-container',
-        '.detalhes-tecnicos',
-        '.rodape'
-    ];
+// ==========================================
+// 4. MODO CONFORTO (SAFE PLACE)
+// ==========================================
+function abrirModoConforto() {
+    const secoesHome = ['.banner', '.momentos', '.elenco-container', '.episodios-container', '.detalhes-tecnicos', '.rodape', '.cabecalho'];
+    secoesHome.forEach(s => {
+        const el = document.querySelector(s);
+        if(el) el.style.display = 'none';
+    });
 
-    secoesParaMostrar.forEach(seletor => {
+    const telaConforto = document.getElementById('modo-conforto');
+    if(telaConforto) {
+        telaConforto.style.display = 'flex';
+        window.scrollTo(0, 0);
+    }
+}
+
+function fecharModoConforto() {
+    document.getElementById('modo-conforto').style.display = 'none';
+    restaurarHome();
+}
+
+// ==========================================
+// 5. MODAIS (FOTOS E MENSAGENS LINDAS)
+// ==========================================
+
+// Abrir Modal de Fotos
+document.querySelectorAll('.momento').forEach(img => {
+    img.onclick = function() {
+        modalFotos.style.display = "flex";
+        document.getElementById("img-modal").src = this.src;
+        document.getElementById("titulo-modal").innerText = this.alt;
+        document.getElementById("descricao-modal").innerText = ""; 
+    };
+});
+
+// Abrir Modal de Mensagem Linda
+function exibirMensagem(texto) {
+    const textoMsg = document.getElementById('texto-mensagem');
+    textoMsg.innerText = texto;
+    modalMsg.style.display = 'flex';
+}
+
+// Função Única para fechar o Card de Mensagem (Chamada pelo X)
+function fecharCardMensagem() {
+    const modalMsg = document.getElementById('modal-mensagem');
+    if (modalMsg) {
+        modalMsg.style.display = 'none';
+    }
+}
+
+// FECHAMENTO GLOBAL: Trata o clique fora das caixas e os botões X
+window.addEventListener('click', function(e) {
+    // Se clicar no fundo do modal de fotos
+    if (e.target === modalFotos) {
+        modalFotos.style.display = "none";
+    }
+    // Se clicar no fundo do modal de mensagem
+    if (e.target === modalMsg) {
+        modalMsg.style.display = "none";
+    }
+    // Se clicar no X do modal de fotos
+    if (e.target.classList.contains('fechar-modal')) {
+        const modalPai = e.target.closest('.modal');
+        if (modalPai) modalPai.style.display = 'none';
+    }
+});
+
+// ==========================================
+// 6. FUNÇÕES AUXILIARES E ESTÉTICAS
+// ==========================================
+function restaurarHome() {
+    const secoesHome = ['.cabecalho', '.banner', '.momentos', '.elenco-container', '.episodios-container', '.detalhes-tecnicos', '.rodape'];
+    secoesHome.forEach(seletor => {
         const elemento = document.querySelector(seletor);
         if (elemento) {
-            // Se for o header ou banner, costuma ser flex, o resto block ou grid
             if (seletor === '.cabecalho' || seletor === '.banner') {
                 elemento.style.display = 'flex';
             } else if (seletor === '.detalhes-tecnicos') {
@@ -71,75 +131,40 @@ function fecharVideo() {
             }
         }
     });
-
-    // 3. Garante que o scroll volte para o topo da home
     window.scrollTo(0, 0);
 }
 
-// 5. Entrar no Site (Com o som TUDUM)
 function entrarNoSite(nome) {
-    // Som clássico da Netflix
     const somTudum = new Audio('https://www.myinstants.com/media/sounds/netflix-intro.mp3');
     somTudum.volume = 0.4;
-    somTudum.play().catch(() => console.log("Áudio bloqueado até interação"));
+    somTudum.play().catch(() => {});
 
     const telaPerfis = document.getElementById('tela-perfis');
-    
-    // Animação de zoom no avatar antes de sumir
-    const avatarClicado = event.currentTarget.querySelector('.avatar');
-    if(avatarClicado) avatarClicado.style.transform = "scale(1.2)";
-
-    setTimeout(() => {
-        telaPerfis.style.opacity = '0';
-        setTimeout(() => { 
-            telaPerfis.style.display = 'none'; 
-        }, 500);
-    }, 300);
+    telaPerfis.style.opacity = '0';
+    setTimeout(() => { telaPerfis.style.display = 'none'; }, 500);
 }
 
-// 6. Contador de Tempo
+// Contador
 const dataInicio = new Date("2025-04-05T00:00:00").getTime();
 setInterval(() => {
     const agora = new Date().getTime();
     const diferenca = agora - dataInicio;
-
     const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
     const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
     const elementoContador = document.querySelector('.detalhes span'); 
     if (elementoContador) {
         elementoContador.innerHTML = `05 DE ABRIL • 1 TEMPORADA • ${dias}d ${horas}h ${minutos}m ${segundos}s`;
     }
 }, 1000);
 
-// 7. Modal de Fotos (Momentos)
-document.querySelectorAll('.momento').forEach(img => {
-    img.onclick = function() {
-        modal.style.display = "flex";
-        document.getElementById("img-modal").src = this.src;
-        document.getElementById("titulo-modal").innerText = this.alt;
-        document.getElementById("descricao-modal").innerText = "Um dos nossos capítulos favoritos.";
-    };
-});
-
-// Fechar Modal ao clicar fora ou no X
-window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
-const fecharBtn = document.querySelector(".fechar-modal");
-if(fecharBtn) {
-    fecharBtn.onclick = () => modal.style.display = "none";
-}
-
-// 8. Funcionalidade da Minha Lista
+// Minha Lista
 if (btnLista) {
     btnLista.onclick = () => {
         btnLista.innerHTML = '<i class="fa-solid fa-check"></i> Na Lista do Luan';
         btnLista.style.background = "#46d369";
         btnLista.style.color = "#fff";
-        
-        setTimeout(() => {
-            alert("✨ Item adicionado aos favoritos! Próximos capítulos: Viagens, jantares e muito mais amor!");
-        }, 300);
+        setTimeout(() => { alert("✨ Item adicionado aos favoritos!"); }, 300);
     };
 }
